@@ -29,6 +29,7 @@ class Login extends React.Component {
     handleLogin = () => {
         const user = this.state.username;
         localStorage.setItem('user', user);
+        window.location.reload();
     }
 
     login = () => {
@@ -38,7 +39,7 @@ class Login extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <TopBar login={this.toggle}/>
+                <TopBar handleLogin={this.handleLogin} toggle={this.toggle}/>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
                     <ModalBody>

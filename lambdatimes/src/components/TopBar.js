@@ -82,21 +82,40 @@ const ContainerRight = styled.div`
 `;
 
 const TopBar = props => {
-  return (
-    <Top>
-      <Container>
-        <ContainerLeft>
-          <span>TOPICS</span><span>SEARCH</span>
-        </ContainerLeft>
-        <ContainerCenter>
-          <span>GENERAL</span><span>BROWNBAG</span><span>RANDOM</span><span>MUSIC</span><span>ANNOUNCEMENTS</span>
-        </ContainerCenter>
-        <ContainerRight>
-          <span onClick={props.login}>LOG IN</span>
-        </ContainerRight>
-      </Container>
-    </Top>
-  )
+  if (!localStorage.getItem('user')) {
+    return (
+      <Top>
+        <Container>
+          <ContainerLeft>
+            <span>TOPICS</span><span>SEARCH</span>
+          </ContainerLeft>
+          <ContainerCenter>
+            <span>GENERAL</span><span>BROWNBAG</span><span>RANDOM</span><span>MUSIC</span><span>ANNOUNCEMENTS</span>
+          </ContainerCenter>
+          <ContainerRight>
+            <span onClick={props.toggle}>LOG IN</span>
+          </ContainerRight>
+        </Container>
+      </Top>
+    )
+  } else {
+    return (
+      <Top>
+        <Container>
+          <ContainerLeft>
+            <span>TOPICS</span><span>SEARCH</span>
+          </ContainerLeft>
+          <ContainerCenter>
+            <span>GENERAL</span><span>BROWNBAG</span><span>RANDOM</span><span>MUSIC</span><span>ANNOUNCEMENTS</span>
+          </ContainerCenter>
+          <ContainerRight>
+            <span onClick={props.logout}>LOGOUT</span>
+          </ContainerRight>
+        </Container>
+      </Top>
+    )
+  }
+  
 }
 
 export default TopBar;
