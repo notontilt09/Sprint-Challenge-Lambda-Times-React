@@ -15,6 +15,7 @@ const Tabs = props => {
                 selectedTab={props.selectedTab} 
                 selectTabHandler={props.selectTabHandler}
                 key={index} 
+                filterCards={props.filterCards}
               />
             )}
       </div>

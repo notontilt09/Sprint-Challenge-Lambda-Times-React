@@ -19,7 +19,8 @@ const Cards = props => {
 
 // Make sure you include prop types for all of your incoming props
 Cards.propTypes = {
-  card: PropTypes.object
+  card: PropTypes.object,
+  filterCards: PropTypes.func
 }
 
 export default Cards;
